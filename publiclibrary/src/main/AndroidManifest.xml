@@ -2,7 +2,6 @@
           package="com.shan.publiclibrary">
 
     <application
-        android:name=".PublicLibraryApp"
         android:allowBackup="true"
         android:label="@string/app_name"
         android:supportsRtl="true">
