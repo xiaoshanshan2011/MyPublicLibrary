@@ -7,8 +7,8 @@ import android.support.annotation.Nullable;
 import com.shan.mypubliclibrary.R;
 import com.shan.mypubliclibrary.bean.testbean;
 import com.shan.mypubliclibrary.databinding.ActivityTestadapterBinding;
-import com.shan.publiclibrary.utils.CommonAdapter;
-import com.shan.publiclibrary.utils.ViewHolder;
+import com.shan.publiclibrary.adapter.CommonAdapter;
+import com.shan.publiclibrary.adapter.ViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,11 +19,6 @@ import java.util.List;
 
 public class TestAdapter extends BaseActivity {
     private List<testbean> list;
-
-    @Override
-    protected void setLayoutId() {
-
-    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,6 +52,11 @@ public class TestAdapter extends BaseActivity {
                 holder.setText(R.id.textView, bean.getName());
             }
         });
+
+    }
+
+    @Override
+    protected void initDatas() {
 
     }
 }

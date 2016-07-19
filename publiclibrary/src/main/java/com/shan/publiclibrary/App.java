@@ -3,7 +3,7 @@ package com.shan.publiclibrary;
 import android.app.Application;
 
 /**
- * Created by Administrator on 2016/7/5.
+ * Created by 陈俊山 on 2016/7/5.
  */
 public class App extends Application {
     private static App instance;

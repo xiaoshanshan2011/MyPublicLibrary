@@ -6,7 +6,7 @@
  * @date 2015-8-5 下午10:39:05
  * @version 1.0
  */
-package com.shan.publiclibrary.utils;
+package com.shan.publiclibrary.adapter;
 
 import java.util.List;
 

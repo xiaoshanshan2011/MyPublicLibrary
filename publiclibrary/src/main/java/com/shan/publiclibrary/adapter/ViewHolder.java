@@ -6,7 +6,7 @@
  * @date 2015-8-5 下午9:08:31
  * @version 1.0
  */
-package com.shan.publiclibrary.utils;
+package com.shan.publiclibrary.adapter;
 
 
 import android.content.Context;
