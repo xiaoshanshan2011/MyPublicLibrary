@@ -23,6 +23,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.TestAdapter"/>
+        <activity android:name=".activity.A1"/>
+        <activity android:name=".activity.A2"/>
+        <activity android:name=".activity.A3"/>
+        <activity android:name=".activity.A4"/>
     </application>
 
 </manifest>
