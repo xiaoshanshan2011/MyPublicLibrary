@@ -1,5 +1,6 @@
 package com.shan.mypubliclibrary.activity;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.os.Environment;
 import android.view.View;
 
 import com.shan.mypubliclibrary.R;
+import com.shan.mypubliclibrary.broadcast.CommonBCReceiver;
 import com.shan.mypubliclibrary.databinding.ActivityMainBinding;
 import com.shan.publiclibrary.utils.ImageUtil;
 import com.shan.publiclibrary.utils.LogUtil;
@@ -20,6 +22,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bindContentView(R.layout.activity_main);
+        CommonBCReceiver.getReceiver().registerAction(this, CommonBCReceiver.NOTIFICATION);
     }
 
 
@@ -40,8 +43,17 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         mBinding.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ToastUtil.toast("33333333333331111111111111");
+                startActivity(new Intent(MainActivity.this, A1.class));
+                /*Intent intent = new Intent(CommonBCReceiver.NOTIFICATION);
+                intent.putExtra("content", "我发送了一条广播给你");
+                sendBroadcast(intent);*/
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(CommonBCReceiver.getReceiver());
     }
 }

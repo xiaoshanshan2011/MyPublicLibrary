@@ -17,7 +17,7 @@ public class ToastUtil {
      */
     public static void toast(String msg) {
         if (toast == null) {
-            toast = Toast.makeText(App.getInstance(), msg, Toast.LENGTH_SHORT);
+            toast = Toast.makeText(App.getApp(), msg, Toast.LENGTH_SHORT);
         } else {
             toast.setText(msg);
         }
@@ -31,7 +31,7 @@ public class ToastUtil {
      */
     public static void toastlong(String msg) {
         if (toast == null) {
-            toast = Toast.makeText(App.getInstance(), msg, Toast.LENGTH_LONG);
+            toast = Toast.makeText(App.getApp(), msg, Toast.LENGTH_LONG);
         } else {
             toast.setText(msg);
         }
