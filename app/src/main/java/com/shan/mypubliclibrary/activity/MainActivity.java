@@ -33,7 +33,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
             file.mkdir();
         }
         file = new File(file, "abc.png");
-        Bitmap bitmap = ImageUtil.getSmallBitmap(file.getAbsolutePath());
+        Bitmap bitmap = ImageUtil.getSmallBitmap(file.getAbsolutePath(), 480, 780);
         mBinding.image.setImageBitmap(bitmap);
     }
 
