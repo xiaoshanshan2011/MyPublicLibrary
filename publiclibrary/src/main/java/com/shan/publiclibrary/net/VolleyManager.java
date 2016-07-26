@@ -29,8 +29,7 @@ public class VolleyManager {
 
         mRequestQueue = Volley.newRequestQueue(context, new OkHttp3Stack(new OkHttpClient()));
 
-        mImageLoader = new ImageLoader(mRequestQueue,
-                new LruBitmapCache(context));
+        mImageLoader = new ImageLoader(mRequestQueue, new LruBitmapCache(context));
     }
 
     /**

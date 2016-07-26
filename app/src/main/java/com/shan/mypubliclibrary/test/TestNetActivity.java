@@ -18,16 +18,17 @@ import com.shan.publiclibrary.utils.LogUtil;
  */
 
 public class TestNetActivity extends BaseActivity<TestnetactivityBinding> {
-    public static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bindContentView(R.layout.testnetactivity);
+        LogUtil.d(TAG);
     }
 
     @Override
     protected void initDatas() {
+        //GET请求
         VolleyManager.newInstance().GsonGetRequest(TAG, UrlConfig.mJsonUrl, PersonBean.class,
                 new Response.Listener<PersonBean>() {
                     @Override
@@ -42,7 +43,7 @@ public class TestNetActivity extends BaseActivity<TestnetactivityBinding> {
                         LogUtil.e(error.getMessage());
                     }
                 });
-
+        //POST请求
         //VolleyManager.newInstance().GsonPostRequest(TAG,,UrlConfig.mMovieJsonUrl,)
     }
 }

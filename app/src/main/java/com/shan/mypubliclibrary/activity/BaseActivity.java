@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentActivity;
  * Created by 陈俊山 on 4/7/2559.
  */
 public abstract class BaseActivity<T extends ViewDataBinding> extends FragmentActivity {
+    protected final String TAG = this.getClass().getName();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
