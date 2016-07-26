@@ -1,14 +1,18 @@
 package com.shan.mypubliclibrary.test;
 
 import android.animation.PropertyValuesHolder;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.shan.mypubliclibrary.R;
 import com.shan.mypubliclibrary.activity.BaseActivity;
 import com.shan.mypubliclibrary.databinding.TestanimatoractivityBinding;
 import com.shan.publiclibrary.manager.AnimatorManager;
+import com.shan.publiclibrary.utils.LogUtil;
 import com.shan.publiclibrary.utils.ToastUtil;
 
 /**
@@ -21,6 +25,12 @@ public class TestAnimatorActivity extends BaseActivity<TestanimatoractivityBindi
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bindContentView(R.layout.testanimatoractivity);
+        ImageLoader.getInstance().displayImage("http://pic1a.nipic.com/2008-10-08/2008108135051971_2.jpg", mBinding.image);
+        //获取缓存文件
+        /*String path = ImageLoader.getInstance().getDiskCache().get("http://pic1a.nipic.com/2008-10-08/2008108135051971_2.jpg").getAbsolutePath();
+        LogUtil.i(path);
+        Bitmap bitmap = BitmapFactory.decodeFile(path);
+        mBinding.image.setImageBitmap(bitmap);*/
     }
 
     boolean status = true;
@@ -45,10 +55,10 @@ public class TestAnimatorActivity extends BaseActivity<TestanimatoractivityBindi
                     AnimatorManager.startAnimotion(mBinding.imageView,270f,90f,500,AnimatorManager.ROTATION);
                 }*/
 
-                PropertyValuesHolder p1 = PropertyValuesHolder.ofFloat(AnimatorManager.ROTATION,0f,360f);
-                PropertyValuesHolder p2 = PropertyValuesHolder.ofFloat(AnimatorManager.TRANSLATIONX,0f,200f);
-                PropertyValuesHolder p3 = PropertyValuesHolder.ofFloat(AnimatorManager.TRANSLATIONY,0f,200f);
-                AnimatorManager.startMultiAnimotion(mBinding.imageView,1000,p1,p2,p3);
+                PropertyValuesHolder p1 = PropertyValuesHolder.ofFloat(AnimatorManager.ROTATION, 0f, 360f);
+                PropertyValuesHolder p2 = PropertyValuesHolder.ofFloat(AnimatorManager.TRANSLATIONX, 0f, 200f);
+                PropertyValuesHolder p3 = PropertyValuesHolder.ofFloat(AnimatorManager.TRANSLATIONY, 0f, 200f);
+                AnimatorManager.startMultiAnimotion(mBinding.imageView, 1000, p1, p2, p3);
             }
         });
     }

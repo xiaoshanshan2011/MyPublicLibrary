@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.shan.mypubliclibrary">
+    package="com.shan.mypubliclibrary">
 
     <!--往sdcard中写入数据的权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
     <!--在sdcard中创建/删除文件的权限 -->
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"></uses-permission>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- 网络权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".MyApp"
@@ -15,19 +17,20 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".test.TestAnimatorActivity">
+        <activity android:name=".test.TestNetActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.TestAdapter"/>
-        <activity android:name=".activity.A1"/>
-        <activity android:name=".activity.A2"/>
-        <activity android:name=".activity.A3"/>
-        <activity android:name=".activity.A4"/>
-        <activity android:name=".activity.MainActivity"/>
+        <activity android:name=".activity.TestAdapter" />
+        <activity android:name=".activity.A1" />
+        <activity android:name=".activity.A2" />
+        <activity android:name=".activity.A3" />
+        <activity android:name=".activity.A4" />
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".test.TestAnimatorActivity" />
     </application>
 
 </manifest>
