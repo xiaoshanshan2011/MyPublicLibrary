@@ -26,8 +26,7 @@ public class GsonRequest<T> extends Request<T> {
     private TypeToken<T> mTypeToken;
 
 
-    public GsonRequest(int method, Map<String, String> params, String url, Class<T> clazz, Listener<T> listener,
-                       ErrorListener errorListener) {
+    public GsonRequest(int method, Map<String, String> params, String url, Class<T> clazz, Listener<T> listener, ErrorListener errorListener) {
         super(method, url, errorListener);
         mClass = clazz;
         mListener = listener;
@@ -35,8 +34,7 @@ public class GsonRequest<T> extends Request<T> {
         setMyRetryPolicy();
     }
 
-    public GsonRequest(int method, Map<String, String> params, String url, TypeToken<T> typeToken, Listener<T> listener,
-                       ErrorListener errorListener) {
+    public GsonRequest(int method, Map<String, String> params, String url, TypeToken<T> typeToken, Listener<T> listener,ErrorListener errorListener) {
         super(method, url, errorListener);
         mTypeToken = typeToken;
         mListener = listener;
@@ -45,9 +43,7 @@ public class GsonRequest<T> extends Request<T> {
     }
 
     private void setMyRetryPolicy() {
-        setRetryPolicy(new DefaultRetryPolicy(30000,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        setRetryPolicy(new DefaultRetryPolicy(30000,DefaultRetryPolicy.DEFAULT_MAX_RETRIES,DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
     }
 
     //get
@@ -56,9 +52,7 @@ public class GsonRequest<T> extends Request<T> {
     }
 
     public GsonRequest(String url, TypeToken<T> typeToken, Listener<T> listener, ErrorListener errorListener) {
-
         this(Method.GET, null, url, typeToken, listener, errorListener);
-
     }
 
 
@@ -71,16 +65,13 @@ public class GsonRequest<T> extends Request<T> {
     protected Response<T> parseNetworkResponse(NetworkResponse response) {
         try {
             String jsonString = new String(response.data, HttpHeaderParser.parseCharset(response.headers));
-            Log.i("info","jsonString:"+jsonString);
+            Log.i("info", "jsonString:" + jsonString);
             if (mTypeToken == null)
-                return Response.success(mGson.fromJson(jsonString, mClass),
-                        HttpHeaderParser.parseCacheHeaders(response));
+                return Response.success(mGson.fromJson(jsonString, mClass),HttpHeaderParser.parseCacheHeaders(response));
             else
-                return (Response<T>) Response.success(mGson.fromJson(jsonString, mTypeToken.getType()),
-                        HttpHeaderParser.parseCacheHeaders(response));
+                return (Response<T>) Response.success(mGson.fromJson(jsonString, mTypeToken.getType()),HttpHeaderParser.parseCacheHeaders(response));
         } catch (UnsupportedEncodingException e) {
             return Response.error(new ParseError(e));
-
         }
     }
 

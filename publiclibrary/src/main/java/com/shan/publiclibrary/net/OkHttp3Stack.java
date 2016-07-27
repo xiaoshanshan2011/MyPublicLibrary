@@ -47,9 +47,7 @@ public class OkHttp3Stack implements HttpStack {
     }
 
     @SuppressWarnings("deprecation")
-    private static void setConnectionParametersForRequest
-            (okhttp3.Request.Builder builder, Request<?> request)
-            throws IOException, AuthFailureError {
+    private static void setConnectionParametersForRequest(okhttp3.Request.Builder builder, Request<?> request) throws IOException, AuthFailureError {
         switch (request.getMethod()) {
             case Request.Method.DEPRECATED_GET_OR_POST:
                 byte[] postBody = request.getPostBody();
@@ -58,35 +56,27 @@ public class OkHttp3Stack implements HttpStack {
                             (MediaType.parse(request.getPostBodyContentType()), postBody));
                 }
                 break;
-
             case Request.Method.GET:
                 builder.get();
                 break;
-
             case Request.Method.DELETE:
                 builder.delete();
                 break;
-
             case Request.Method.POST:
                 builder.post(createRequestBody(request));
                 break;
-
             case Request.Method.PUT:
                 builder.put(createRequestBody(request));
                 break;
-
             case Request.Method.HEAD:
                 builder.head();
                 break;
-
             case Request.Method.OPTIONS:
                 builder.method("OPTIONS", null);
                 break;
-
             case Request.Method.TRACE:
                 builder.method("TRACE", null);
                 break;
-
             case Request.Method.PATCH:
                 builder.patch(createRequestBody(request));
                 break;
@@ -99,7 +89,6 @@ public class OkHttp3Stack implements HttpStack {
     private static RequestBody createRequestBody(Request request) throws AuthFailureError {
         final byte[] body = request.getBody();
         if (body == null) return null;
-
         return RequestBody.create(MediaType.parse(request.getBodyContentType()), body);
     }
 
@@ -114,13 +103,11 @@ public class OkHttp3Stack implements HttpStack {
             case HTTP_2:
                 return new ProtocolVersion("HTTP", 2, 0);
         }
-
         throw new IllegalAccessError("Unkwown protocol");
     }
 
     @Override
-    public HttpResponse performRequest(Request<?> request, Map<String, String> additionalHeaders)
-            throws IOException, AuthFailureError {
+    public HttpResponse performRequest(Request<?> request, Map<String, String> additionalHeaders)throws IOException, AuthFailureError {
         int timeoutMs = request.getTimeoutMs();
         OkHttpClient client = mClient.newBuilder()
                 .readTimeout(timeoutMs, TimeUnit.MILLISECONDS)
@@ -143,12 +130,10 @@ public class OkHttp3Stack implements HttpStack {
         okhttp3.Request okhttp3Request = okHttpRequestBuilder.url(request.getUrl()).build();
         Response okHttpResponse = client.newCall(okhttp3Request).execute();
 
-        StatusLine responseStatus = new BasicStatusLine
-                (
+        StatusLine responseStatus = new BasicStatusLine(
                         parseProtocol(okHttpResponse.protocol()),
                         okHttpResponse.code(),
-                        okHttpResponse.message()
-                );
+                        okHttpResponse.message());
 
         BasicHttpResponse response = new BasicHttpResponse(responseStatus);
         response.setEntity(entityFromOkHttpResponse(okHttpResponse));
