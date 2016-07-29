@@ -12,8 +12,8 @@ import cn.finalteam.galleryfinal.ImageLoader;
 import cn.finalteam.galleryfinal.widget.GFImageView;
 
 /**
- *
- * Created by shan on 2016/6/15.
+ *  主要用于图片选择器框架GalleryFinal
+ * Created by 陈俊山 on 2016/6/15.
  */
 public class UiImageLoader implements ImageLoader {
     private Bitmap.Config mImageConfig;

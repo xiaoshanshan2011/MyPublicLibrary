@@ -3,6 +3,7 @@ package com.shan.publiclibrary.utils;
 import android.util.Log;
 
 /**
+ * 打印日志
  * Created by 陈俊山 on 2016/7/5.
  */
 public class LogUtil {
