@@ -15,6 +15,7 @@ import com.shan.mypubliclibrary.config.UrlConfig;
 import com.shan.mypubliclibrary.databinding.TestnetactivityBinding;
 import com.shan.publiclibrary.net.VolleyManager;
 import com.shan.publiclibrary.utils.LogUtil;
+import com.shan.publiclibrary.utils.MD5Util;
 import com.shan.publiclibrary.utils.ToastUtil;
 
 import java.util.HashMap;
@@ -78,5 +79,7 @@ public class TestNetActivity extends BaseActivity<TestnetactivityBinding> {
                 ToastUtil.toast(error.getMessage());
             }
         });
+        mBinding.textView.append("\n");
+        mBinding.textView.append(MD5Util.encryption("11111111111"));
     }
 }
