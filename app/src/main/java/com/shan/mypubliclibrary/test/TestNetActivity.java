@@ -14,7 +14,10 @@ import com.shan.mypubliclibrary.bean.PersonBean;
 import com.shan.mypubliclibrary.config.UrlConfig;
 import com.shan.mypubliclibrary.databinding.TestnetactivityBinding;
 import com.shan.publiclibrary.net.VolleyManager;
+import com.shan.publiclibrary.utils.DensityUtil;
 import com.shan.publiclibrary.utils.LogUtil;
+import com.shan.publiclibrary.utils.MD5Util;
+import com.shan.publiclibrary.utils.SPUtils;
 import com.shan.publiclibrary.utils.ToastUtil;
 
 import java.util.HashMap;
@@ -63,7 +66,7 @@ public class TestNetActivity extends BaseActivity<TestnetactivityBinding> {
                 });*/
 
         //POST请求
-        Map<String, String> map = new HashMap<>();
+        /*Map<String, String> map = new HashMap<>();
         map.put("name", "xiaoshanshan");
 
         VolleyManager.newInstance().GsonPostRequest(TAG, map, UrlConfig.getStudent, GetStudentBean.class, new Response.Listener<GetStudentBean>() {
@@ -78,5 +81,11 @@ public class TestNetActivity extends BaseActivity<TestnetactivityBinding> {
                 ToastUtil.toast(error.getMessage());
             }
         });
+        mBinding.textView.append("\n");
+        mBinding.textView.append(MD5Util.encryption("11111111111"));*/
+
+        /*SPUtils.put("11", 12345678);
+        mBinding.textView.setText(SPUtils.get("11", 0)+"");*/
+        mBinding.textView.setText(DensityUtil.dp2px(12)+"");
     }
 }
