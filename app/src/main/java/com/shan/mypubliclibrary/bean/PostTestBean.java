@@ -1,25 +1,23 @@
 package com.shan.mypubliclibrary.bean;
 
 /**
- * Created by 陈俊山 on 2016/7/27.
+ * Created by 大唐天下 on 2016/8/19.
  */
 
-public class GetStudentBean {
-
+public class PostTestBean {
     /**
      * code : 401
      * message : 访问成功
-     * data : {"name":"xiaoshanshan","userid":"11111111111111111111","age":"26","sex":"男","headimage":"http://img1.imgtn.bdimg.com/it/u=2618987948,1808310603&fm=206&gp=0.jpg"}
+     * data : {"name":"xiaoshanshan","age":"26","sex":"男","headimage":"hhhhhhhhhhhhhhhh"}
      */
 
     private int code;
     private String message;
     /**
      * name : xiaoshanshan
-     * userid : 11111111111111111111
      * age : 26
      * sex : 男
-     * headimage : http://img1.imgtn.bdimg.com/it/u=2618987948,1808310603&fm=206&gp=0.jpg
+     * headimage : hhhhhhhhhhhhhhhh
      */
 
     private DataBean data;
@@ -50,7 +48,6 @@ public class GetStudentBean {
 
     public static class DataBean {
         private String name;
-        private String userid;
         private String age;
         private String sex;
         private String headimage;
@@ -61,14 +58,6 @@ public class GetStudentBean {
 
         public void setName(String name) {
             this.name = name;
-        }
-
-        public String getUserid() {
-            return userid;
-        }
-
-        public void setUserid(String userid) {
-            this.userid = userid;
         }
 
         public String getAge() {
@@ -99,7 +88,6 @@ public class GetStudentBean {
         public String toString() {
             return "DataBean{" +
                     "name='" + name + '\'' +
-                    ", userid='" + userid + '\'' +
                     ", age='" + age + '\'' +
                     ", sex='" + sex + '\'' +
                     ", headimage='" + headimage + '\'' +
@@ -109,7 +97,7 @@ public class GetStudentBean {
 
     @Override
     public String toString() {
-        return "GetStudentBean{" +
+        return "PostTestBean{" +
                 "code=" + code +
                 ", message='" + message + '\'' +
                 ", data=" + data.toString() +

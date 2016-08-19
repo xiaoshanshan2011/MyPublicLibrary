@@ -4,24 +4,19 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.nostra13.universalimageloader.core.ImageLoader;
 import com.shan.mypubliclibrary.R;
 import com.shan.mypubliclibrary.activity.BaseActivity;
-import com.shan.mypubliclibrary.bean.GetStudentBean;
-import com.shan.mypubliclibrary.bean.PersonBean;
-import com.shan.mypubliclibrary.config.UrlConfig;
+import com.shan.mypubliclibrary.bean.PostTestBean;
 import com.shan.mypubliclibrary.databinding.TestnetactivityBinding;
-import com.shan.publiclibrary.net.VolleyManager;
-import com.shan.publiclibrary.utils.DensityUtil;
+import com.shan.mypubliclibrary.net.NetCallback;
+import com.shan.mypubliclibrary.net.NetRequestBuilder;
 import com.shan.publiclibrary.utils.LogUtil;
-import com.shan.publiclibrary.utils.MD5Util;
-import com.shan.publiclibrary.utils.SPUtils;
 import com.shan.publiclibrary.utils.ToastUtil;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import retrofit2.Call;
 
 /**
  * Created by 陈俊山 on 2016/7/26.
@@ -49,43 +44,53 @@ public class TestNetActivity extends BaseActivity<TestnetactivityBinding> {
     @Override
     protected void getDatas() {
         super.getDatas();
-        //GET请求
-        /*VolleyManager.newInstance().GsonGetRequest(TAG, UrlConfig.mJsonUrl, PersonBean.class,
-                new Response.Listener<PersonBean>() {
-                    @Override
-                    public void onResponse(PersonBean person) {
-                        LogUtil.d(person.toString());
-                        mBinding.textView.setText(person.toString());
-                        //mBinding..setText(person.toString());
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        LogUtil.e(error.getMessage());
-                    }
-                });*/
-
-        //POST请求
-        /*Map<String, String> map = new HashMap<>();
-        map.put("name", "xiaoshanshan");
-
-        VolleyManager.newInstance().GsonPostRequest(TAG, map, UrlConfig.getStudent, GetStudentBean.class, new Response.Listener<GetStudentBean>() {
+        /*NetRequest.execute(NetRequest.getNetService().GetUser(), new NetCallback<InfoBean>() {
             @Override
-            public void onResponse(GetStudentBean response) {
-                mBinding.textView.setText(response.toString());
-                ImageLoader.getInstance().displayImage(response.getData().getHeadimage(), mBinding.imageView);
+            protected void onSuccess(InfoBean result) {
+                if (result.getCode() == 401) {
+                    ToastUtil.toast(result.getMessage());
+                } else {
+                    ToastUtil.toast(result.getMessage());
+                    return;
+                }
+                mBinding.textView.setText(result.toString());
             }
-        }, new Response.ErrorListener() {
+
             @Override
-            public void onErrorResponse(VolleyError error) {
-                ToastUtil.toast(error.getMessage());
+            public void onFailure(Call<InfoBean> call, Throwable t) {
+                ToastUtil.toast("访问失败");
+            }
+        });*/
+
+        Map params = new HashMap();
+        params.put("u_id", "88888888");
+        params.put("name", "xiaoshanshan");
+        params.put("age", "26");
+        params.put("sex", "男");
+        params.put("headimage", "hhhhhhhhhhhhhhhh");
+
+        NetRequestBuilder.execute(TAG, NetRequestBuilder.getNetService().PostTest(params), new NetCallback<PostTestBean>() {
+            @Override
+            protected void onSuccess(PostTestBean result) {
+                if (result.getCode() == 401) {
+                    ToastUtil.toast(result.getMessage());
+                } else {
+                    ToastUtil.toast(result.getMessage());
+                    return;
+                }
+                mBinding.textView.setText(result.toString());
+            }
+
+            @Override
+            public void onFailure(Call<PostTestBean> call, Throwable t) {
+                ToastUtil.toast("访问失败");
             }
         });
-        mBinding.textView.append("\n");
-        mBinding.textView.append(MD5Util.encryption("11111111111"));*/
+    }
 
-        /*SPUtils.put("11", 12345678);
-        mBinding.textView.setText(SPUtils.get("11", 0)+"");*/
-        mBinding.textView.setText(DensityUtil.dp2px(12)+"");
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        NetRequestBuilder.removeCall(TAG);
     }
 }

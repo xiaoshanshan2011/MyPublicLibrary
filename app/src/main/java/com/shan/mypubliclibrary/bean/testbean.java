@@ -1,7 +1,7 @@
 package com.shan.mypubliclibrary.bean;
 
 /**
- * Created by Administrator on 2016/7/11.
+ * Created by 大唐天下 on 2016/8/19.
  */
 
 public class testbean {
@@ -17,5 +17,12 @@ public class testbean {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "testbean{" +
+                "name='" + name + '\'' +
+                '}';
     }
 }

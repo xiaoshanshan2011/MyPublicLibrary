@@ -3,13 +3,8 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="distributionType" value="LOCAL" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-<<<<<<< HEAD
-        <option name="gradleHome" value="C:\software\android-studio\gradle\gradle-2.14.1" />
-=======
-        <option name="gradleHome" value="D:\android-studio\gradle\gradle-2.10" />
->>>>>>> d8465d9b6d55f31fb417e370f90f8ad0f60ea14a
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />

@@ -5,20 +5,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/button"/>
 
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
         <TextView
-            android:text="测试网络框架"
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-        <cn.finalteam.galleryfinal.widget.zoonview.PhotoView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView"/>
 
     </LinearLayout>
 </layout>
