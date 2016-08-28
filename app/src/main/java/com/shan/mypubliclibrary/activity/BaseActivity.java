@@ -6,11 +6,12 @@ import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
+import android.view.View;
 
 /**
  * Created by 陈俊山 on 4/7/2559.
  */
-public abstract class BaseActivity<T extends ViewDataBinding> extends FragmentActivity {
+public abstract class BaseActivity<T extends ViewDataBinding> extends FragmentActivity implements View.OnClickListener{
     protected final String TAG = this.getClass().getName();
 
     @Override
@@ -31,7 +32,6 @@ public abstract class BaseActivity<T extends ViewDataBinding> extends FragmentAc
         mBinding = DataBindingUtil.setContentView(this, layoutRes);
         initDatas();
         initEvents();
-        getDatas();
         bindDatas();
     }
 
@@ -58,4 +58,8 @@ public abstract class BaseActivity<T extends ViewDataBinding> extends FragmentAc
     protected void bindDatas() {
     }
 
+    @Override
+    public void onClick(View view) {
+
+    }
 }

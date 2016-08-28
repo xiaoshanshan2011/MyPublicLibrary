@@ -3,6 +3,7 @@ package com.shan.mypubliclibrary.activity;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
 
 import com.shan.mypubliclibrary.R;
 import com.shan.mypubliclibrary.bean.testbean;
@@ -57,6 +58,11 @@ public class TestAdapter extends BaseActivity {
 
     @Override
     protected void initDatas() {
+
+    }
+
+    @Override
+    public void onClick(View view) {
 
     }
 }

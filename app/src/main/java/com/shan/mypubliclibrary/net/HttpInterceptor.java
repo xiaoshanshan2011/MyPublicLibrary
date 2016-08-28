@@ -18,7 +18,7 @@ import okio.BufferedSource;
  * Created by 陈俊山 on 2016/8/19.
  */
 
-public class MyInterceptor implements Interceptor {
+public class HttpInterceptor implements Interceptor {
     private static final Charset UTF8 = Charset.forName("UTF-8");
 
     @Override
