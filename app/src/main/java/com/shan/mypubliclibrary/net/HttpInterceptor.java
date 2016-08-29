@@ -45,7 +45,7 @@ public class HttpInterceptor implements Interceptor {
 
         if (contentLength > 0) {
             String result = buffer.clone().readString(charset);
-            Log.d("info", "<-------result:    " + result);
+            Log.d("debug", "<-------result:    " + result);
         }
         return response;
     }

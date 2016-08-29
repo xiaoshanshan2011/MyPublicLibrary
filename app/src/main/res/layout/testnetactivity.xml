@@ -21,7 +21,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:text="Name"
+                android:text="13422058465"
                 android:ems="10"
                 android:id="@+id/editText"
                 android:layout_weight="1" />

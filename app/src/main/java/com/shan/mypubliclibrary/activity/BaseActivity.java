@@ -11,7 +11,7 @@ import android.view.View;
 /**
  * Created by 陈俊山 on 4/7/2559.
  */
-public abstract class BaseActivity<T extends ViewDataBinding> extends FragmentActivity implements View.OnClickListener{
+public abstract class BaseActivity<T extends ViewDataBinding> extends FragmentActivity implements View.OnClickListener {
     protected final String TAG = this.getClass().getName();
 
     @Override

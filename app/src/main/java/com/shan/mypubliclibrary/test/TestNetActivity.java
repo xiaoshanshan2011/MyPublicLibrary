@@ -51,7 +51,7 @@ public class TestNetActivity extends BaseActivity<TestnetactivityBinding> {
         map.put("showapi_appid", "4670");
         map.put("showapi_timestamp", "20160828093616");
         map.put("showapi_sign", "0dd87eedd76d374e184e6437755dfa72");
-        HttpSubscriber<PhoneQueryBean> subscriber = new HttpSubscriber<PhoneQueryBean>() {
+        HttpSubscriber<PhoneQueryBean> subscriber = new HttpSubscriber<PhoneQueryBean>(this) {
             @Override
             protected void onSuccess(PhoneQueryBean phoneQueryBean) {
                 mBinding.textView.setText(phoneQueryBean.toString());
