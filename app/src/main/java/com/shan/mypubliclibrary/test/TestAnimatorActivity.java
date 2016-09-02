@@ -28,12 +28,7 @@ public class TestAnimatorActivity extends BaseActivity<TestanimatoractivityBindi
         LogUtil.i(path);
         Bitmap bitmap = BitmapFactory.decodeFile(path);
         mBinding.image.setImageBitmap(bitmap);*/
-    }
 
-    boolean status = true;
-
-    @Override
-    protected void initDatas() {
         mBinding.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,8 +55,4 @@ public class TestAnimatorActivity extends BaseActivity<TestanimatoractivityBindi
         });
     }
 
-    @Override
-    public void onClick(View view) {
-
-    }
 }

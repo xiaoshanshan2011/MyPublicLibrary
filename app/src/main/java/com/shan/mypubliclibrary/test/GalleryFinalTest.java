@@ -2,7 +2,6 @@ package com.shan.mypubliclibrary.test;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.view.View;
 
 import com.shan.mypubliclibrary.activity.BaseActivity;
 
@@ -35,13 +34,4 @@ public class GalleryFinalTest extends BaseActivity {
         });
     }
 
-    @Override
-    protected void initDatas() {
-
-    }
-
-    @Override
-    public void onClick(View view) {
-
-    }
 }

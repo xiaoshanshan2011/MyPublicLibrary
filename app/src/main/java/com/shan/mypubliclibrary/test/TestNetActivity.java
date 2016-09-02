@@ -1,16 +1,21 @@
 package com.shan.mypubliclibrary.test;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.text.TextUtils;
 import android.view.View;
+import android.widget.AdapterView;
 
 import com.shan.mypubliclibrary.R;
 import com.shan.mypubliclibrary.activity.BaseActivity;
-import com.shan.mypubliclibrary.bean.PhoneQueryBean;
+import com.shan.mypubliclibrary.bean.MovieBean;
 import com.shan.mypubliclibrary.databinding.TestnetactivityBinding;
+import com.shan.mypubliclibrary.fragment.TestFragment;
 import com.shan.mypubliclibrary.net.HttpRequestBuilder;
-import com.shan.mypubliclibrary.net.HttpSubscriber;
+import com.shan.mypubliclibrary.net.SubscriberCallBack;
+import com.shan.publiclibrary.activity.CommonActivity;
+import com.shan.publiclibrary.adapter.CommonAdapter;
+import com.shan.publiclibrary.adapter.ViewHolder;
 import com.shan.publiclibrary.utils.ToastUtil;
 
 import java.util.HashMap;
@@ -25,36 +30,33 @@ public class TestNetActivity extends BaseActivity<TestnetactivityBinding> {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bindContentView(R.layout.testnetactivity);
-    }
-
-    @Override
-    protected void initDatas() {
-
-    }
-
-    @Override
-    protected void initEvents() {
-        super.initEvents();
-        mBinding.button.setOnClickListener(this);
-    }
-
-    @Override
-    protected void getDatas() {
-        super.getDatas();
-        String name = mBinding.editText.getText().toString().trim();
-        if (TextUtils.isEmpty(name)) {
-            ToastUtil.toast("请输入手机号码");
-            return;
-        }
-        Map<String, String> map = new HashMap<>();
-        map.put("num", name);
-        map.put("showapi_appid", "4670");
-        map.put("showapi_timestamp", "20160828093616");
-        map.put("showapi_sign", "0dd87eedd76d374e184e6437755dfa72");
-        HttpSubscriber<PhoneQueryBean> subscriber = new HttpSubscriber<PhoneQueryBean>(this) {
+        getDatas();
+        mBinding.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            protected void onSuccess(PhoneQueryBean phoneQueryBean) {
-                mBinding.textView.setText(phoneQueryBean.toString());
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(TestNetActivity.this, CommonActivity.class);
+                intent.putExtra(CommonActivity.FRAGMENT_CLASS, TestFragment.class);
+                intent.putExtra("flag", "xiaoshanshan");
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void getDatas() {
+        Map<String, String> map = new HashMap<>();
+        map.put("showapi_appid", "4670");
+        map.put("showapi_timestamp", "20160830093034");
+        map.put("showapi_sign", "fa3ff656162cb3bdfa31866fbb25e962");
+        SubscriberCallBack<MovieBean> subscriber = new SubscriberCallBack<MovieBean>(this,this) {
+            @Override
+            protected void onSuccess(MovieBean phoneQueryBean) {
+                mBinding.listView.setAdapter(new CommonAdapter<MovieBean.ShowapiResBodyBean.DatalistBean>(TestNetActivity.this, phoneQueryBean.getShowapi_res_body().getDatalist(), R.layout.item) {
+                    @Override
+                    public void convert(ViewHolder holder, MovieBean.ShowapiResBodyBean.DatalistBean bean) {
+                        holder.setText(R.id.textView, bean.getMovieName());
+                        holder.setText(R.id.textView2, bean.getPrice()+"元");
+                    }
+                });
             }
 
             @Override
@@ -62,15 +64,6 @@ public class TestNetActivity extends BaseActivity<TestnetactivityBinding> {
                 ToastUtil.toast(e.getMessage());
             }
         };
-        HttpRequestBuilder.getInstance().execute(HttpRequestBuilder.httpService.phoneQuery(map), subscriber);
-    }
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.button:
-                getDatas();
-                break;
-        }
+        subscription = HttpRequestBuilder.getInstance().execute(HttpRequestBuilder.httpService.movie(map), subscriber);
     }
 }

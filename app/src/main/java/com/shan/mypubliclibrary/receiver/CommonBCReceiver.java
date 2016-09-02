@@ -1,4 +1,4 @@
-package com.shan.mypubliclibrary.broadcast;
+package com.shan.mypubliclibrary.receiver;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;

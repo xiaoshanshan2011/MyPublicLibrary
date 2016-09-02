@@ -1,5 +1,6 @@
 package com.shan.mypubliclibrary.net;
 
+import com.shan.mypubliclibrary.bean.MovieBean;
 import com.shan.mypubliclibrary.bean.PhoneQueryBean;
 
 import java.util.Map;
@@ -24,4 +25,14 @@ public interface HttpService {
     //手机归属地查询
     @GET("6-1")
     Observable<PhoneQueryBean> registerOpenfire(@Query("num") String num, @Query("showapi_appid") String showapi_appid, @Query("showapi_timestamp") String showapi_timestamp, @Query("showapi_sign") String showapi_sign);
+
+    //电影排行
+    @FormUrlEncoded
+    @POST("578-6")
+    Observable<MovieBean> movie(@FieldMap Map<String, String> params);
+
+    //电影排行
+    @GET("578-6")
+    Observable<MovieBean> movie(@Query("showapi_appid") String showapi_appid, @Query("showapi_timestamp") String showapi_timestamp, @Query("showapi_sign") String showapi_sign);
+
 }

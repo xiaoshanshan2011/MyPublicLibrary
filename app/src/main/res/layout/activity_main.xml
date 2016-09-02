@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <LinearLayout
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <Button
+        <FrameLayout
+            android:id="@+id/fl_content"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:id="@+id/button"/>
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
-        <TextView
-            android:text="TextView"
+
+        </FrameLayout>
+
+        <View
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView2" />
+            android:layout_height="0.5dp"
+            android:background="@color/divider" />
+
+        <android.support.v4.app.FragmentTabHost
+            android:background="@color/white"
+            android:id="@android:id/tabhost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></android.support.v4.app.FragmentTabHost>
+
     </LinearLayout>
 </layout>
