@@ -1,14 +1,16 @@
 package com.shan.mypubliclibrary.bean;
 
 /**
- * Created by 大唐天下 on 2016/8/19.
+ * Created by 陈俊山 on 2016/9/8.
  */
 
-public class testbean {
+public class TestBean {
     private String name;
+    private int age;
 
-    public testbean(String name) {
+    public TestBean(String name, int age) {
         this.name = name;
+        this.age = age;
     }
 
     public String getName() {
@@ -19,10 +21,19 @@ public class testbean {
         this.name = name;
     }
 
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     @Override
     public String toString() {
-        return "testbean{" +
+        return "TestBean{" +
                 "name='" + name + '\'' +
+                ", age=" + age +
                 '}';
     }
 }

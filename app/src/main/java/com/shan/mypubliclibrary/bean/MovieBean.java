@@ -3,7 +3,7 @@ package com.shan.mypubliclibrary.bean;
 import java.util.List;
 
 /**
- * Created by 大唐天下 on 2016/8/30.
+ * Created by 陈俊山 on 2016/8/30.
  */
 
 public class MovieBean extends BaseBean {

@@ -15,12 +15,7 @@ public class BFragment extends BaseFragment {
     }
 
     @Override
-    public void getDatas() {
+    public void initOnCreate() {
         ToastUtil.toast("BFragment");
-    }
-
-    @Override
-    public void bindDatas() {
-
     }
 }

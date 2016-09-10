@@ -15,12 +15,7 @@ public class DFragment extends BaseFragment {
     }
 
     @Override
-    public void getDatas() {
+    public void initOnCreate() {
         ToastUtil.toast("DFragment");
-    }
-
-    @Override
-    public void bindDatas() {
-
     }
 }

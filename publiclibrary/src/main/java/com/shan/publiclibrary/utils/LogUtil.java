@@ -13,7 +13,7 @@ public class LogUtil {
      * @param info
      */
     public static void i(String info) {
-        Log.i("<<<<<info<<<<<", info);
+        Log.i("info", info);
     }
 
     /**
@@ -22,7 +22,7 @@ public class LogUtil {
      * @param debug
      */
     public static void d(String debug) {
-        Log.d("<<<<<debug<<<<<", debug);
+        Log.d("debug", debug);
     }
 
     /**
@@ -31,7 +31,7 @@ public class LogUtil {
      * @param error
      */
     public static void e(String error) {
-        Log.e("<<<<<error<<<<<", error);
+        Log.e("error", error);
     }
 
     /**
@@ -40,7 +40,7 @@ public class LogUtil {
      * @param warn
      */
     public static void w(String warn) {
-        Log.w("<<<<<warn<<<<<", warn);
+        Log.w("warn", warn);
     }
 
     /**
@@ -49,6 +49,6 @@ public class LogUtil {
      * @param verbose
      */
     public static void v(String verbose) {
-        Log.v("<<<<<verbose<<<<<", verbose);
+        Log.v("verbose", verbose);
     }
 }

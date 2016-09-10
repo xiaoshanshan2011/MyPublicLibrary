@@ -34,7 +34,6 @@ public class MD5Util {
                     hexValue.append("0");
                 hexValue.append(Integer.toHexString(val));
             }
-
             return hexValue.toString();
         } catch (Exception e) {
             e.printStackTrace();

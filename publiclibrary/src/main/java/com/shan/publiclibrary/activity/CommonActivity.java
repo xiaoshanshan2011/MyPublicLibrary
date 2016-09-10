@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 
 import com.shan.publiclibrary.R;
+import com.shan.publiclibrary.manager.StatusBar;
 
 
 /**
@@ -21,10 +22,11 @@ public class CommonActivity extends FragmentActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_common_activity);
-
+        setContentView(R.layout.activity_common);
         //禁止横竖屏切换
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        //设置状态栏颜色
+        StatusBar.showStatusBar(this, R.color.white);
 
         try {
             Class fragmentClass = (Class) getIntent().getSerializableExtra(FRAGMENT_CLASS);

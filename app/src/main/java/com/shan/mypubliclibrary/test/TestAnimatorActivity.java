@@ -1,8 +1,6 @@
 package com.shan.mypubliclibrary.test;
 
 import android.animation.PropertyValuesHolder;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -16,12 +14,15 @@ import com.shan.publiclibrary.utils.ToastUtil;
  * Created by 陈俊山 on 2016/7/22.
  */
 
-public class TestAnimatorActivity extends BaseActivity<TestanimatoractivityBinding> {
+public class TestAnimatorActivity extends BaseActivity<TestanimatoractivityBinding, Object> {
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        bindContentView(R.layout.testanimatoractivity);
+    public int bindLayout() {
+        return R.layout.testanimatoractivity;
+    }
+
+    @Override
+    public void initOnCreate() {
         ImageLoader.getInstance().displayImage("http://pic1a.nipic.com/2008-10-08/2008108135051971_2.jpg", mBinding.image);
         //获取缓存文件
         /*String path = ImageLoader.getInstance().getDiskCache().get("http://pic1a.nipic.com/2008-10-08/2008108135051971_2.jpg").getAbsolutePath();

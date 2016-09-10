@@ -1,50 +1,74 @@
 package com.shan.mypubliclibrary.fragment;
 
-import com.shan.mypubliclibrary.R;
-import com.shan.mypubliclibrary.bean.MovieBean;
-import com.shan.mypubliclibrary.databinding.TestfragmentBinding;
-import com.shan.mypubliclibrary.net.HttpRequestBuilder;
-import com.shan.mypubliclibrary.net.SubscriberCallBack;
-import com.shan.publiclibrary.utils.ToastUtil;
+import android.content.Intent;
+import android.databinding.DataBindingUtil;
+import android.os.Handler;
+import android.view.LayoutInflater;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.shan.mypubliclibrary.R;
+import com.shan.mypubliclibrary.activity.TestListView;
+import com.shan.mypubliclibrary.bean.TestBean;
+import com.shan.mypubliclibrary.databinding.AaaaaaaaaaaaaaaaaaaaaaaaaaaaaaBinding;
+import com.shan.mypubliclibrary.databinding.ItemBinding;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by 陈俊山 on 2016/8/30.
  */
 
-public class TestFragment extends BaseFragment<TestfragmentBinding> {
+public class TestFragment extends BaseFragment<ItemBinding, TestBean> {
+    private Handler handler = new Handler();
 
     @Override
-    public int bindLayout() {
-        return R.layout.testfragment;
+    public int bindItemLayout() {
+        return R.layout.item;
+    }
+
+    @Override
+    public void initOnCreate() {
+        showPullRefresh();
     }
 
     @Override
     public void getDatas() {
-        String s = getActivity().getIntent().getStringExtra("flag");
-
-        Map<String, String> map = new HashMap<>();
-        map.put("showapi_appid", "4670");
-        map.put("showapi_timestamp", "20160830093034");
-        map.put("showapi_sign", "fa3ff656162cb3bdfa31866fbb25e962");
-        SubscriberCallBack<MovieBean> subscriber = new SubscriberCallBack<MovieBean>(getActivity(),this) {
-            @Override
-            protected void onSuccess(MovieBean phoneQueryBean) {
-                mBinding.textView.setText(phoneQueryBean.toString());
-            }
-
-            @Override
-            protected void onFailure(Throwable e) {
-                ToastUtil.toast(e.getMessage());
-            }
-        };
-        subscription = HttpRequestBuilder.getInstance().execute(HttpRequestBuilder.httpService.movie(map), subscriber);
+        super.getDatas();
+        AaaaaaaaaaaaaaaaaaaaaaaaaaaaaaBinding HeadBing = DataBindingUtil.inflate(LayoutInflater.from(getActivity()), R.layout.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa, null, false);
+        lvBinding.listView.addHeaderView(HeadBing.getRoot());
+        List<TestBean> list = new ArrayList<>();
+        list.add(new TestBean("xiaosham", 12));
+        list.add(new TestBean("xiaosham", 13));
+        list.add(new TestBean("xiaosham", 14));
+        list.add(new TestBean("xiaosham", 15));
+        list.add(new TestBean("xiaosham", 16));
+        list.add(new TestBean("xiaosham", 17));
+        list.add(new TestBean("xiaosham", 18));
+        setData(list);
     }
 
     @Override
-    public void bindDatas() {
+    protected void getListVewItem(ItemBinding binding, TestBean item) {
+        super.getListVewItem(binding, item);
+        binding.textView.setText(item.getName());
+        binding.textView2.setText(item.getAge() + "");
+    }
 
+    @Override
+    protected void itemOnclick(int position) {
+        super.itemOnclick(position);
+        Intent intent = new Intent(getActivity(), TestListView.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onRefresh() {
+        super.onRefresh();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                lvBinding.refreshLayout.setRefreshing(false);
+            }
+        }, 2000);
     }
 }

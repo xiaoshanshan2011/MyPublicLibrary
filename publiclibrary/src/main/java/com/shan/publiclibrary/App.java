@@ -49,7 +49,6 @@ public class App extends Application {
 
 
     /*################################初始化三级图片缓存库################################*/
-
     /*初始化ImageLoader*/
     private void initImageloader() {
         File cacheDir = StorageUtils.getOwnCacheDirectory(getApplicationContext(), "com.shan.mypubliclibrary/cache");

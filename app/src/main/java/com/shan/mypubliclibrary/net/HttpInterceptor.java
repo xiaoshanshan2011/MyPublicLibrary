@@ -1,11 +1,22 @@
 package com.shan.mypubliclibrary.net;
 
+import com.nostra13.universalimageloader.utils.L;
+import com.shan.publiclibrary.utils.LogUtil;
+import com.shan.publiclibrary.utils.TimeUtil;
+
+import java.io.EOFException;
 import java.io.IOException;
 import java.nio.charset.Charset;
 
+import okhttp3.Headers;
 import okhttp3.Interceptor;
+import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
+import okhttp3.internal.http.HttpEngine;
+import okio.Buffer;
+import okio.BufferedSource;
 
 /**
  * Created by 陈俊山 on 2016/8/19.
@@ -18,7 +29,78 @@ public class HttpInterceptor implements Interceptor {
     public Response intercept(Chain chain) throws IOException {
         Request request = chain.request();
         Response response = chain.proceed(request);
-        //Log.d("debug", "<-------result:    " + response.body().string());
+        ResponseBody responseBody = response.body();
+        long contentLength = responseBody.contentLength();
+
+        if (!HttpEngine.hasBody(response) || bodyEncoded(response.headers())) {
+            return response;
+        }
+
+        try {
+            BufferedSource source = responseBody.source();
+            source.request(Long.MAX_VALUE); // Buffer the entire body.
+            Buffer buffer = source.buffer();
+
+            Charset charset = UTF8;
+            MediaType contentType = responseBody.contentType();
+            if (contentType != null) {
+                charset = contentType.charset(UTF8);
+            }
+
+            if (!isPlaintext(buffer)) {
+                L.i("<-- END HTTP (binary " + buffer.size() + "-byte body omitted)");
+                return response;
+            }
+
+            if (contentLength != 0) {
+                LogUtil.i("==================================" + TimeUtil.getTime("yyyy-MM-dd HH:mm:ss") + "==================================");
+                //如果result的长度大于1000则分段打印输出
+                String result = buffer.clone().readString(charset);
+                int length = result.length();
+                int printNum = 3000;//每次打印的字数
+                if (length > printNum) {
+                    int number = length / printNum;
+                    int beyond = length % printNum;
+                    int index = 0;
+                    for (int i = 0; i < number; i++) {
+                        LogUtil.i(result.substring(index, index + printNum));
+                        index = index + printNum;
+                    }
+                    LogUtil.i(result.substring(index, index + beyond));
+                } else {
+                    LogUtil.i(result);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return response;
     }
+
+
+    static boolean isPlaintext(Buffer buffer) throws EOFException {
+        try {
+            Buffer prefix = new Buffer();
+            long byteCount = buffer.size() < 64 ? buffer.size() : 64;
+            buffer.copyTo(prefix, 0, byteCount);
+            for (int i = 0; i < 16; i++) {
+                if (prefix.exhausted()) {
+                    break;
+                }
+                int codePoint = prefix.readUtf8CodePoint();
+                if (Character.isISOControl(codePoint) && !Character.isWhitespace(codePoint)) {
+                    return false;
+                }
+            }
+            return true;
+        } catch (EOFException e) {
+            return false; // Truncated UTF-8 sequence.
+        }
+    }
+
+    private boolean bodyEncoded(Headers headers) {
+        String contentEncoding = headers.get("Content-Encoding");
+        return contentEncoding != null && !contentEncoding.equalsIgnoreCase("identity");
+    }
+
 }

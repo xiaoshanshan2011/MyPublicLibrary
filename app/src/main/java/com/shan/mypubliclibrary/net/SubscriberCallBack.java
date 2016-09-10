@@ -16,17 +16,37 @@ import rx.Subscriber;
 
 public abstract class SubscriberCallBack<T extends BaseBean> extends Subscriber<T> {
     private PDUtil pdUtil = null;
+    private boolean isCancel = true;//默认点击返回键是可以取消
     private CancelRequestListener cancelRequestListener;
 
     //不启动ProgressDialog
     public SubscriberCallBack() {
     }
 
-    //启动ProgressDialog，并注册取消请求监听
+    /**
+     * 启动ProgressDialog，并注册取消请求监听
+     *
+     * @param context
+     * @param cancelRequestListener 取消请求监听
+     */
     public SubscriberCallBack(Context context, CancelRequestListener cancelRequestListener) {
-        pdUtil = new PDUtil(context);
-        pdUtil.setOnKeyListener(new DialogOnKeyListener());
+        pdUtil = new PDUtil(context, isCancel);
         this.cancelRequestListener = cancelRequestListener;
+        pdUtil.setOnKeyListener(new DialogOnKeyListener());
+    }
+
+    /**
+     * 启动ProgressDialog，并注册取消请求监听
+     *
+     * @param context
+     * @param cancelRequestListener 取消请求监听
+     * @param isCancel              点击返回键是否可以取消
+     */
+    public SubscriberCallBack(Context context, CancelRequestListener cancelRequestListener, boolean isCancel) {
+        this.isCancel = isCancel;
+        this.cancelRequestListener = cancelRequestListener;
+        pdUtil = new PDUtil(context, isCancel);
+        pdUtil.setOnKeyListener(new DialogOnKeyListener());
     }
 
     @Override
@@ -66,10 +86,11 @@ public abstract class SubscriberCallBack<T extends BaseBean> extends Subscriber<
     protected abstract void onFailure(Throwable e);
 
     private class DialogOnKeyListener implements DialogInterface.OnKeyListener {
-
         @Override
         public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
             if (i == KeyEvent.KEYCODE_BACK) {
+                if (!isCancel)
+                    return true;
                 onError(new RuntimeException("取消请求"));
                 cancelRequestListener.cancelRequest();
             }
