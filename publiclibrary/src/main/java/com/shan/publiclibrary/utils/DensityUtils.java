@@ -9,7 +9,7 @@ import com.shan.publiclibrary.App;
  * Created by 陈俊山 on 2016/7/31.
  */
 
-public class DensityUtil {
+public class DensityUtils {
     /**
      * dp转px
      *

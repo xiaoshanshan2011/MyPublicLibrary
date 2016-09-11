@@ -1,7 +1,7 @@
 package com.shan.mypubliclibrary.bean;
 
 /**
- * Created by 陈俊山 on 2016/9/8.
+ * Created by Administrator on 2016/9/11.
  */
 
 public class TestBean {

@@ -8,7 +8,7 @@ import java.util.Date;
  * Created by 陈俊山 on 2016/9/7.
  */
 
-public class TimeUtil {
+public class TimeUtils {
 
     /**
      * 获取系统时间

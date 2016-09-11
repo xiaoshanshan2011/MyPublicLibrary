@@ -8,7 +8,7 @@ import com.shan.mypubliclibrary.R;
 import com.shan.mypubliclibrary.activity.BaseActivity;
 import com.shan.mypubliclibrary.databinding.TestanimatoractivityBinding;
 import com.shan.publiclibrary.manager.AnimatorManager;
-import com.shan.publiclibrary.utils.ToastUtil;
+import com.shan.publiclibrary.utils.ToastUtils;
 
 /**
  * Created by 陈俊山 on 2016/7/22.
@@ -33,7 +33,7 @@ public class TestAnimatorActivity extends BaseActivity<TestanimatoractivityBindi
         mBinding.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ToastUtil.toast("我被点中了，嘻嘻");
+                ToastUtils.toast("我被点中了，嘻嘻");
             }
         });
 

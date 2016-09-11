@@ -7,7 +7,7 @@ import java.security.MessageDigest;
  * Created by 陈俊山 on 2016/7/29.
  */
 
-public class MD5Util {
+public class MD5Utils {
 
     /**
      * MD5加密，32位

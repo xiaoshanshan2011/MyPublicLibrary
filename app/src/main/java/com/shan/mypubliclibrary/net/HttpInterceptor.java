@@ -1,8 +1,8 @@
 package com.shan.mypubliclibrary.net;
 
 import com.nostra13.universalimageloader.utils.L;
-import com.shan.publiclibrary.utils.LogUtil;
-import com.shan.publiclibrary.utils.TimeUtil;
+import com.shan.publiclibrary.utils.LogUtils;
+import com.shan.publiclibrary.utils.TimeUtils;
 
 import java.io.EOFException;
 import java.io.IOException;
@@ -53,7 +53,7 @@ public class HttpInterceptor implements Interceptor {
             }
 
             if (contentLength != 0) {
-                LogUtil.i("==================================" + TimeUtil.getTime("yyyy-MM-dd HH:mm:ss") + "==================================");
+                LogUtils.i("==================================" + TimeUtils.getTime("yyyy-MM-dd HH:mm:ss") + "==================================");
                 //如果result的长度大于1000则分段打印输出
                 String result = buffer.clone().readString(charset);
                 int length = result.length();
@@ -63,12 +63,12 @@ public class HttpInterceptor implements Interceptor {
                     int beyond = length % printNum;
                     int index = 0;
                     for (int i = 0; i < number; i++) {
-                        LogUtil.i(result.substring(index, index + printNum));
+                        LogUtils.i(result.substring(index, index + printNum));
                         index = index + printNum;
                     }
-                    LogUtil.i(result.substring(index, index + beyond));
+                    LogUtils.i(result.substring(index, index + beyond));
                 } else {
-                    LogUtil.i(result);
+                    LogUtils.i(result);
                 }
             }
         } catch (Exception e) {

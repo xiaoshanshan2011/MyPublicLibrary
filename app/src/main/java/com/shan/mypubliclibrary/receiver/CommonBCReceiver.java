@@ -6,7 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 
-import com.shan.publiclibrary.utils.ToastUtil;
+import com.shan.publiclibrary.utils.ToastUtils;
 
 /**
  * 公共广播
@@ -43,7 +43,7 @@ public class CommonBCReceiver extends BroadcastReceiver {
         //通知
         if (intent.getAction() == "com.shan.notification") {
             String content = intent.getStringExtra("content");
-            ToastUtil.toast(content);
+            ToastUtils.toast(content);
         }
     }
 }

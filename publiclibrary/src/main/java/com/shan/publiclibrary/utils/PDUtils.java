@@ -14,9 +14,9 @@ import com.shan.publiclibrary.R;
  * Created by 陈俊山 on 2016/9/7.
  */
 
-public class PDUtil extends Dialog {
+public class PDUtils extends Dialog {
 
-    public PDUtil(Context context,boolean isCancel) {
+    public PDUtils(Context context, boolean isCancel) {
         super(context);
         View view = LayoutInflater.from(context).inflate(R.layout.loading_layout, null);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);//取消标题

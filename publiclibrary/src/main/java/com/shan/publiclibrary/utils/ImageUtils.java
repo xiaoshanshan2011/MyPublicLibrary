@@ -4,16 +4,13 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
 
-import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
 
 /**
  * 图片工具类
- * Created by 陈俊山 on 4/7/2559.
+ * Created by 陈俊山 on 2016/7/31.
  */
-public class ImageUtil {
+public class ImageUtils {
 
     /**
      * 计算图片的缩放值

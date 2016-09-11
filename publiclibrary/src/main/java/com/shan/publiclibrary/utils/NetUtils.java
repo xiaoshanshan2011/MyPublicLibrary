@@ -10,7 +10,7 @@ import com.shan.publiclibrary.App;
  * 网络相关辅助工具类
  * Created by 陈俊山 on 2016/7/29.
  */
-public class NetUtil {
+public class NetUtils {
 
     /**
      * 判断是否有网络连接

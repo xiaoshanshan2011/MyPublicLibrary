@@ -5,7 +5,7 @@ import android.content.DialogInterface;
 import android.view.KeyEvent;
 
 import com.shan.mypubliclibrary.bean.BaseBean;
-import com.shan.publiclibrary.utils.PDUtil;
+import com.shan.publiclibrary.utils.PDUtils;
 
 import rx.Subscriber;
 
@@ -15,7 +15,7 @@ import rx.Subscriber;
  */
 
 public abstract class SubscriberCallBack<T extends BaseBean> extends Subscriber<T> {
-    private PDUtil pdUtil = null;
+    private PDUtils pdUtils = null;
     private boolean isCancel = true;//默认点击返回键是可以取消
     private CancelRequestListener cancelRequestListener;
 
@@ -30,9 +30,9 @@ public abstract class SubscriberCallBack<T extends BaseBean> extends Subscriber<
      * @param cancelRequestListener 取消请求监听
      */
     public SubscriberCallBack(Context context, CancelRequestListener cancelRequestListener) {
-        pdUtil = new PDUtil(context, isCancel);
+        pdUtils = new PDUtils(context, isCancel);
         this.cancelRequestListener = cancelRequestListener;
-        pdUtil.setOnKeyListener(new DialogOnKeyListener());
+        pdUtils.setOnKeyListener(new DialogOnKeyListener());
     }
 
     /**
@@ -45,30 +45,30 @@ public abstract class SubscriberCallBack<T extends BaseBean> extends Subscriber<
     public SubscriberCallBack(Context context, CancelRequestListener cancelRequestListener, boolean isCancel) {
         this.isCancel = isCancel;
         this.cancelRequestListener = cancelRequestListener;
-        pdUtil = new PDUtil(context, isCancel);
-        pdUtil.setOnKeyListener(new DialogOnKeyListener());
+        pdUtils = new PDUtils(context, isCancel);
+        pdUtils.setOnKeyListener(new DialogOnKeyListener());
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        if (pdUtil != null && !pdUtil.isShowing()) {
-            pdUtil.show();
+        if (pdUtils != null && !pdUtils.isShowing()) {
+            pdUtils.show();
         }
     }
 
     @Override
     public void onCompleted() {
-        if (pdUtil != null && pdUtil.isShowing()) {
-            pdUtil.dismiss();
+        if (pdUtils != null && pdUtils.isShowing()) {
+            pdUtils.dismiss();
         }
     }
 
     @Override
     public void onError(Throwable e) {
         onFailure(e);
-        if (pdUtil != null && pdUtil.isShowing()) {
-            pdUtil.dismiss();
+        if (pdUtils != null && pdUtils.isShowing()) {
+            pdUtils.dismiss();
         }
     }
 

@@ -11,7 +11,7 @@ import com.shan.mypubliclibrary.fragment.TestFragment;
 import com.shan.mypubliclibrary.net.HttpRequestBuilder;
 import com.shan.mypubliclibrary.net.SubscriberCallBack;
 import com.shan.publiclibrary.activity.CommonActivity;
-import com.shan.publiclibrary.utils.ToastUtil;
+import com.shan.publiclibrary.utils.ToastUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -46,7 +46,7 @@ public class AFragment extends BaseFragment<ItemBinding, DatalistBean> {
 
             @Override
             protected void onFailure(Throwable e) {
-                ToastUtil.toast(e.getMessage());
+                ToastUtils.toast(e.getMessage());
             }
         };
         subscription = HttpRequestBuilder.getInstance().execute(HttpRequestBuilder.httpService.movie(map), subscriber);
@@ -61,7 +61,7 @@ public class AFragment extends BaseFragment<ItemBinding, DatalistBean> {
 
     @Override
     protected void itemOnclick(int position) {
-        ToastUtil.toast(position + "");
+        ToastUtils.toast(position + "");
         Intent intent = new Intent(getActivity(), CommonActivity.class);
         intent.putExtra(CommonActivity.FRAGMENT_CLASS, TestFragment.class);
         startActivity(intent);
@@ -83,7 +83,7 @@ public class AFragment extends BaseFragment<ItemBinding, DatalistBean> {
 
             @Override
             protected void onFailure(Throwable e) {
-                ToastUtil.toast(e.getMessage());
+                ToastUtils.toast(e.getMessage());
                 lvBinding.refreshLayout.setRefreshing(false);
             }
         };
