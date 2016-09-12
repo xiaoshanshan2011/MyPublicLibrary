@@ -21,15 +21,10 @@ public class TestListView extends BaseActivity<ItemLayoutBinding, TestBean2> {
     @Override
     public void initOnCreate() {
         super.initOnCreate();
-        showPullRefresh();
-    }
 
-    @Override
-    public void getDatas() {
-        super.getDatas();
         List<TestBean2> list = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            list.add(new TestBean2("http://attimg.dospy.com/img/day_141110/20141110_23a804e3b8b212d5e206T7B7haQowGII.jpg", "sssssssssssssssssd"));
+        for (int i = 0; i < 20; i++) {
+            list.add(new TestBean2("http://pic1.5442.com/2015/0715/05/01.jpg","ssssssss"));
         }
         setData(list);
     }
@@ -37,7 +32,13 @@ public class TestListView extends BaseActivity<ItemLayoutBinding, TestBean2> {
     @Override
     protected void getListVewItem(ItemLayoutBinding binding, TestBean2 item) {
         super.getListVewItem(binding, item);
-        ImageLoader.getInstance().displayImage(item.getIvUrl(), binding.imageView);
+        ImageLoader.getInstance().displayImage(item.getIvUrl(),binding.imageView);
         binding.textView.setText(item.getText());
+    }
+
+    @Override
+    protected void itemOnclick(int position) {
+        super.itemOnclick(position);
+
     }
 }

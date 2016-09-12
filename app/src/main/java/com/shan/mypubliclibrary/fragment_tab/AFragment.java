@@ -38,7 +38,7 @@ public class AFragment extends BaseFragment<ItemBinding, DatalistBean> {
         map.put("showapi_appid", "4670");
         map.put("showapi_timestamp", "20160830093034");
         map.put("showapi_sign", "fa3ff656162cb3bdfa31866fbb25e962");
-        SubscriberCallBack<MovieBean> subscriber = new SubscriberCallBack<MovieBean>(getActivity(), this) {
+        /*SubscriberCallBack<MovieBean> subscriber = new SubscriberCallBack<MovieBean>(getActivity(), this) {
             @Override
             protected void onSuccess(MovieBean phoneQueryBean) {
                 setData(phoneQueryBean.getShowapi_res_body().getDatalist());
@@ -48,7 +48,20 @@ public class AFragment extends BaseFragment<ItemBinding, DatalistBean> {
             protected void onFailure(Throwable e) {
                 ToastUtils.toast(e.getMessage());
             }
+        };*/
+
+        SubscriberCallBack<MovieBean> subscriber = new SubscriberCallBack<MovieBean>() {
+            @Override
+            protected void onSuccess(MovieBean movieBean) {
+
+            }
+
+            @Override
+            protected void onFailure(Throwable e) {
+
+            }
         };
+
         subscription = HttpRequestBuilder.getInstance().execute(HttpRequestBuilder.httpService.movie(map), subscriber);
     }
 
