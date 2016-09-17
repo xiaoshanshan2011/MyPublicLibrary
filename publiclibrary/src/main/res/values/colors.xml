@@ -19,5 +19,6 @@
     <color name="black">#000000</color><!--黑色-->
     <color name="light_black">#272636</color><!--线黑色-->
     <color name="light_sea_green">#00bb9c</color><!--浅海洋绿-->
+    <color name="light_sea_red">#be0e0e</color><!--浅海洋绿-->
 
 </resources>

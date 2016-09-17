@@ -54,7 +54,7 @@ public class TabManager {
                 for (int i = 0; i < texts.length; i++) {
                     if (texts[i].equals(s)) {
                         list.get(i).checkBox.setChecked(true);
-                        list.get(i).textview.setTextColor(activity.getResources().getColor(R.color.light_sea_green));
+                        list.get(i).textview.setTextColor(activity.getResources().getColor(R.color.light_sea_red));
                     } else {
                         list.get(i).checkBox.setChecked(false);
                         list.get(i).textview.setTextColor(activity.getResources().getColor(R.color.light_black));

@@ -1,5 +1,5 @@
 #打印info信息
-adb logcat info:I *:S > C:\software\androidProject\MyPublicLibrary\app\src\main\assets\log.txt
+adb logcat info:I *:S > D:\software\androidProject\MyPublicLibrary\app\src\main\assets\log.txt
 
 #清空log.txt
-adb logcat -c info:I *:S > C:\software\androidProject\MyPublicLibrary\app\src\main\assets\log.txt
+adb logcat -c info:I *:S > D:\software\androidProject\MyPublicLibrary\app\src\main\assets\log.txt

@@ -4,14 +4,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="5dp">
+        android:padding="7dp">
 
         <CheckBox
             android:id="@+id/checkBox"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
             android:background="@drawable/main_tab1_selector"
             android:button="@null"
             android:checked="false"
