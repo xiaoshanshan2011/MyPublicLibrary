@@ -48,6 +48,12 @@ public class TestFragment extends BaseFragment<ItemBinding, TestBean> {
     }
 
     @Override
+    public void initTitleBar() {
+        super.initTitleBar();
+        setTitle("TestFragment");
+    }
+
+    @Override
     protected void getListVewItem(ItemBinding binding, TestBean item) {
         super.getListVewItem(binding, item);
         binding.textView.setText(item.getName());

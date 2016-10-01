@@ -1,5 +1,7 @@
 package com.shan.mypubliclibrary.fragment;
 
+import android.view.View;
+
 import com.shan.mypubliclibrary.R;
 import com.shan.mypubliclibrary.bean.TestBean;
 import com.shan.mypubliclibrary.databinding.ItemBinding;
@@ -25,6 +27,11 @@ public class LeftDrawerFragment extends BaseFragment<ItemBinding, TestBean> {
             list.add(new TestBean("ssxssxssssss", 222));
         }
         setData(list);
+    }
+
+    @Override
+    public void initTitleBar() {
+        setTitleBarVisibility(View.GONE);
     }
 
     @Override

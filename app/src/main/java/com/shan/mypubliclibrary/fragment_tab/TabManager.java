@@ -9,6 +9,7 @@ import android.widget.TabHost;
 
 import com.shan.mypubliclibrary.R;
 import com.shan.mypubliclibrary.databinding.MainTabItemLayoutBinding;
+import com.shan.mypubliclibrary.listener.TitleBarListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,17 +25,20 @@ public class TabManager {
     private Class fragments[];
     private int images[];
     private String texts[];
+    private TitleBarListener mTitleBarListener;
 
-    public TabManager(FragmentActivity activity, Class fragments[], int images[], String texts[]) {
+    public TabManager(FragmentActivity activity, FragmentTabHost mTabHost, Class fragments[], int images[], String texts[]) {
         this.activity = activity;
         this.fragments = fragments;
         this.images = images;
         this.texts = texts;
+        this.mTabHost = mTabHost;//
+        this.mTitleBarListener = (TitleBarListener) activity;
     }
 
     public void initTab() {
         // 实例化TabHost对象，得到TabHost
-        mTabHost = (FragmentTabHost) activity.findViewById(android.R.id.tabhost);
+        //mTabHost = (FragmentTabHost) activity.findViewById(android.R.id.tabhost);
         mTabHost.setup(activity, activity.getSupportFragmentManager(), R.id.fl_content);
         // 得到fragment的个数
         int count = fragments.length;
@@ -53,6 +57,7 @@ public class TabManager {
             public void onTabChanged(String s) {
                 for (int i = 0; i < texts.length; i++) {
                     if (texts[i].equals(s)) {
+                        mTitleBarListener.setTitleBarTitle(i);
                         list.get(i).checkBox.setChecked(true);
                         list.get(i).textview.setTextColor(activity.getResources().getColor(R.color.light_sea_red));
                     } else {

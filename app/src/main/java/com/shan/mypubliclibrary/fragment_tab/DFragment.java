@@ -1,5 +1,7 @@
 package com.shan.mypubliclibrary.fragment_tab;
 
+import android.view.View;
+
 import com.shan.mypubliclibrary.R;
 import com.shan.mypubliclibrary.fragment.BaseFragment;
 import com.shan.publiclibrary.utils.ToastUtils;
@@ -17,5 +19,10 @@ public class DFragment extends BaseFragment {
     @Override
     public void initOnCreate() {
         ToastUtils.toast("DFragment");
+    }
+
+    @Override
+    public void initTitleBar() {
+        setTitleBarVisibility(View.GONE);
     }
 }

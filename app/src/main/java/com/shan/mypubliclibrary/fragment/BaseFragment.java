@@ -10,12 +10,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 
 import com.shan.mypubliclibrary.R;
 import com.shan.mypubliclibrary.adapter.CommonAdapter;
 import com.shan.mypubliclibrary.databinding.ListviewLayoutBinding;
+import com.shan.mypubliclibrary.databinding.TitletarLayoutBinding;
 import com.shan.mypubliclibrary.net.CancelRequestListener;
-import com.shan.publiclibrary.listener.BindFragmentListener;
+import com.shan.publiclibrary.listener.BindListener;
 
 import java.util.List;
 
@@ -28,42 +30,59 @@ import rx.Subscription;
  * @param <D> ListVIew Item数据类型
  */
 
-public abstract class BaseFragment<T extends ViewDataBinding, D> extends Fragment implements CancelRequestListener, BindFragmentListener, SwipeRefreshLayout.OnRefreshListener {
+public abstract class BaseFragment<T extends ViewDataBinding, D> extends Fragment implements CancelRequestListener, BindListener, SwipeRefreshLayout.OnRefreshListener {
     protected final String TAG = this.getClass().getName();
     protected Subscription subscription;
     protected ListviewLayoutBinding lvBinding;//当子类是列表的时候这个才可用
-    protected T mBinding;
-    private View view = null;
+    protected T mBinding;//内容布局
+    protected TitletarLayoutBinding titleBinding;//头部布局
+    private LinearLayout linearLayout = null;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        //TitleBar
+        titleBinding = DataBindingUtil.inflate(LayoutInflater.from(getActivity()), R.layout.titletar_layout, null, false);
+        LinearLayout.LayoutParams title_params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        //Content
         if (bindLayout() != 0) {
-            if (view == null) {
-                mBinding = DataBindingUtil.inflate(inflater, bindLayout(), container, false);
+            if (linearLayout == null) {
+                linearLayout = new LinearLayout(getActivity());
+                linearLayout.setOrientation(LinearLayout.VERTICAL);
+                linearLayout.addView(titleBinding.getRoot(), title_params);
+
+                mBinding = DataBindingUtil.inflate(LayoutInflater.from(getActivity()), bindLayout(), container, false);
+                LinearLayout.LayoutParams content_params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+                linearLayout.addView(mBinding.getRoot(), content_params);
+                initTitleBar();
                 initOnCreate();
                 getDatas();
                 bindDatas();
-                view = mBinding.getRoot();
             }
         } else if (bindItemLayout() != 0) {
-            if (view == null) {
+            if (linearLayout == null) {
+                linearLayout = new LinearLayout(getActivity());
+                linearLayout.setOrientation(LinearLayout.VERTICAL);
+                linearLayout.addView(titleBinding.getRoot(), title_params);
+
                 lvBinding = DataBindingUtil.inflate(inflater, R.layout.listview_layout, container, false);
-                initPullRefresh();
+                lvBinding.refreshLayout.setEnabled(false);//关闭下拉刷新
+                LinearLayout.LayoutParams content_params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+                linearLayout.addView(lvBinding.getRoot(), content_params);
+                initTitleBar();
                 initOnCreate();
                 getDatas();
                 bindDatas();
-                view = lvBinding.getRoot();
             }
         } else {
             return null;
         }
 
-        ViewGroup parent = (ViewGroup) view.getParent();
+        ViewGroup parent = (ViewGroup) linearLayout.getParent();
         if (parent != null) {
-            parent.removeView(view);
+            parent.removeView(linearLayout);
         }
-        return view;
+        return linearLayout;
     }
 
     @Override
@@ -186,5 +205,58 @@ public abstract class BaseFragment<T extends ViewDataBinding, D> extends Fragmen
             lvBinding.refreshLayout.setRefreshing(false);
             cancelRequest();
         }
+    }
+
+    @Override
+    public void setTitleBarVisibility(int visibility) {
+        titleBinding.getRoot().setVisibility(visibility);
+    }
+
+    public void setTitle(String text) {
+        titleBinding.tvTitle.setText(text);
+    }
+
+    public void setTitleRightIcon(int iconRes) {
+        titleBinding.btnRight.setImageResource(iconRes);
+    }
+
+    public void setTitleLeftIcon(int iconRes) {
+        titleBinding.btnLeft.setImageResource(iconRes);
+    }
+
+    @Override
+    public void initTitleBar() {
+        titleBinding.btnLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onClickLeft(view);
+            }
+        });
+        titleBinding.btnRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onClickRight(view);
+            }
+        });
+    }
+
+    /**
+     * TitleBar左边的点击事件
+     *
+     * @param view
+     */
+    @Override
+    public void onClickLeft(View view) {
+        getActivity().finish();
+    }
+
+    /**
+     * TitleBar右边的点击事件
+     *
+     * @param view
+     */
+    @Override
+    public void onClickRight(View view) {
+
     }
 }

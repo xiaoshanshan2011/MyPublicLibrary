@@ -56,4 +56,8 @@ public class TestAnimatorActivity extends BaseActivity<TestanimatoractivityBindi
         });
     }
 
+    @Override
+    public void initTitleBar() {
+
+    }
 }

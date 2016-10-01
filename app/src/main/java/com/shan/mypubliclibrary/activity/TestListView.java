@@ -30,6 +30,12 @@ public class TestListView extends BaseActivity<ItemLayoutBinding, TestBean2> {
     }
 
     @Override
+    public void initTitleBar() {
+        super.initTitleBar();
+        setTitle("TestListView");
+    }
+
+    @Override
     protected void getListVewItem(ItemLayoutBinding binding, TestBean2 item) {
         super.getListVewItem(binding, item);
         ImageLoader.getInstance().displayImage(item.getIvUrl(),binding.imageView);
@@ -41,4 +47,5 @@ public class TestListView extends BaseActivity<ItemLayoutBinding, TestBean2> {
         super.itemOnclick(position);
 
     }
+
 }

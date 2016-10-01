@@ -1,8 +1,8 @@
 package com.shan.mypubliclibrary.fragment_tab;
 
 import android.content.Intent;
+import android.view.View;
 
-import com.shan.mypubliclibrary.R;
 import com.shan.mypubliclibrary.bean.MovieBean;
 import com.shan.mypubliclibrary.bean.MovieBean.ShowapiResBodyBean.DatalistBean;
 import com.shan.mypubliclibrary.databinding.ItemBinding;
@@ -16,6 +16,8 @@ import com.shan.publiclibrary.utils.ToastUtils;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.shan.mypubliclibrary.R.layout.item;
+
 /**
  * Created by 陈俊山 on 2016/8/31.
  */
@@ -23,7 +25,7 @@ import java.util.Map;
 public class AFragment extends BaseFragment<ItemBinding, DatalistBean> {
     @Override
     public int bindItemLayout() {
-        return R.layout.item;
+        return item;
     }
 
     @Override
@@ -50,6 +52,12 @@ public class AFragment extends BaseFragment<ItemBinding, DatalistBean> {
             }
         };
         subscription = HttpRequestBuilder.getInstance().execute(HttpRequestBuilder.httpService.movie(map), subscriber);
+    }
+
+    @Override
+    public void initTitleBar() {
+        super.initTitleBar();
+        setTitleBarVisibility(View.GONE);
     }
 
     @Override
@@ -89,4 +97,5 @@ public class AFragment extends BaseFragment<ItemBinding, DatalistBean> {
         };
         subscription = HttpRequestBuilder.getInstance().execute(HttpRequestBuilder.httpService.movie(map), subscriber);
     }
+
 }
