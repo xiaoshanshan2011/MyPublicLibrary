@@ -35,4 +35,6 @@ public interface BindListener {
     /*TitleBar左边点击事件*/
     void onClickRight(View view);
 
+    void closeRefresh();
+
 }

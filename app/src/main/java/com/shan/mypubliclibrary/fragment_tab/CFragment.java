@@ -8,7 +8,7 @@ import com.shan.mypubliclibrary.adapter.CommonAdapter;
 import com.shan.mypubliclibrary.bean.CTestBean;
 import com.shan.mypubliclibrary.databinding.FragmentCBinding;
 import com.shan.mypubliclibrary.databinding.FragmentCItemBinding;
-import com.shan.mypubliclibrary.fragment.BaseFragment;
+import com.shan.mypubliclibrary.BaseFragment;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -3,7 +3,7 @@ package com.shan.mypubliclibrary.fragment_tab;
 import android.view.View;
 
 import com.shan.mypubliclibrary.R;
-import com.shan.mypubliclibrary.fragment.BaseFragment;
+import com.shan.mypubliclibrary.BaseFragment;
 import com.shan.publiclibrary.utils.ToastUtils;
 
 /**

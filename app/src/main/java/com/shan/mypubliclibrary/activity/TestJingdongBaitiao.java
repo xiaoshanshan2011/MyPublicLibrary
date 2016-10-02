@@ -4,7 +4,7 @@ import android.view.Gravity;
 
 import com.shan.mypubliclibrary.R;
 import com.shan.mypubliclibrary.databinding.FragmentTestjingdongbaitiaoBinding;
-import com.shan.mypubliclibrary.fragment.BaseFragment;
+import com.shan.mypubliclibrary.BaseFragment;
 
 /**
  * Created by 陈俊山 on 16-9-27.

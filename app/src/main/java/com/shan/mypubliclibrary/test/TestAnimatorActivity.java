@@ -5,7 +5,7 @@ import android.view.View;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.shan.mypubliclibrary.R;
-import com.shan.mypubliclibrary.activity.BaseActivity;
+import com.shan.mypubliclibrary.BaseActivity;
 import com.shan.mypubliclibrary.databinding.TestanimatoractivityBinding;
 import com.shan.publiclibrary.manager.AnimatorManager;
 import com.shan.publiclibrary.utils.ToastUtils;

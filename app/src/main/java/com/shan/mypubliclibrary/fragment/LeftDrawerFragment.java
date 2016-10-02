@@ -2,6 +2,7 @@ package com.shan.mypubliclibrary.fragment;
 
 import android.view.View;
 
+import com.shan.mypubliclibrary.BaseFragment;
 import com.shan.mypubliclibrary.R;
 import com.shan.mypubliclibrary.bean.TestBean;
 import com.shan.mypubliclibrary.databinding.ItemBinding;

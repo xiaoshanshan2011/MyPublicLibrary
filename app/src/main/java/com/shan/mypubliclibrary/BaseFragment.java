@@ -1,4 +1,4 @@
-package com.shan.mypubliclibrary.fragment;
+package com.shan.mypubliclibrary;
 
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 
-import com.shan.mypubliclibrary.R;
 import com.shan.mypubliclibrary.adapter.CommonAdapter;
 import com.shan.mypubliclibrary.databinding.ListviewLayoutBinding;
 import com.shan.mypubliclibrary.databinding.TitletarLayoutBinding;
@@ -258,5 +257,12 @@ public abstract class BaseFragment<T extends ViewDataBinding, D> extends Fragmen
     @Override
     public void onClickRight(View view) {
 
+    }
+
+    @Override
+    public void closeRefresh() {
+        if (lvBinding!=null){
+            lvBinding.refreshLayout.setRefreshing(false);
+        }
     }
 }

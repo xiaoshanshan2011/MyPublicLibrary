@@ -1,7 +1,7 @@
 package com.shan.mypubliclibrary.bean;
 
 /**
- * Created by Administrator on 2016/9/11.
+ * Created by root on 16-10-2.
  */
 
 public class TestBean {
@@ -27,13 +27,5 @@ public class TestBean {
 
     public void setAge(int age) {
         this.age = age;
-    }
-
-    @Override
-    public String toString() {
-        return "TestBean{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                '}';
     }
 }

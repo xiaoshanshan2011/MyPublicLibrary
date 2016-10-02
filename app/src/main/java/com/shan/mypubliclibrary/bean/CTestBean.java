@@ -1,7 +1,7 @@
 package com.shan.mypubliclibrary.bean;
 
 /**
- * Created by Administrator on 2016/9/13.
+ * Created by root on 16-10-2.
  */
 
 public class CTestBean {
