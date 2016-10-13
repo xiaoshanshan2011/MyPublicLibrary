@@ -1,0 +1,16 @@
+{
+  "tools": [
+    {
+      "name": "css format",
+      "site": "http://www.atool.org/csscompression.php"
+    },
+    {
+      "name": "json format",
+      "site": "http://www.atool.org/jsonformat.php"
+    },
+    {
+      "name": "hash MD5",
+      "site": "http://www.atool.org/hash.php"
+    }
+  ]
+}

@@ -6,7 +6,7 @@ import android.widget.MediaController;
 import android.widget.VideoView;
 
 /**
- * Created by 陈俊山oot on 16-10-13.
+ * Created by 陈俊山 on 16-10-13.
  */
 
 public class VideoUtils {

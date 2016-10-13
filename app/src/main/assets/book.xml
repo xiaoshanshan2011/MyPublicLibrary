@@ -1,0 +1,17 @@
+<books>
+    <book>
+        <author>Jack Herrington</author>
+        <title>PHP Hacks</title>
+        <publisher>O'Reilly</publisher>
+    </book>
+    <book>
+        <author>Jack Herrington</author>
+        <title>Podcasting Hacks</title>
+        <publisher>O'Reilly</publisher>
+    </book>
+    <book>
+        <author>王小为</author>
+        <title>深入在线工具</title>
+        <publisher>aTool.org组织</publisher>
+    </book>
+</books>
