@@ -3,7 +3,7 @@ package com.shan.publiclibrary.listener;
 import android.view.View;
 
 /**
- * 绑定Frgment Layout
+ * 绑定Activity,Frgment Layout
  * Created by 陈俊山 on 2016/8/30.
  */
 
