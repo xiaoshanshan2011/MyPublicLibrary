@@ -39,8 +39,8 @@ public class AFragment extends BaseFragment<ItemBinding, DatalistBean> implement
     }
 
     @Override
-    protected void getListVewItem(ItemBinding binding, DatalistBean item) {
-        super.getListVewItem(binding, item);
+    protected void getListVewItem(ItemBinding binding, DatalistBean item, int position) {
+        super.getListVewItem(binding, item, position);
         binding.textView.setText(item.getMovieName());
         binding.textView2.setText(item.getPrice() + "元");
     }

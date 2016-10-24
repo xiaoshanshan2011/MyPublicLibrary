@@ -12,6 +12,7 @@ import java.util.List;
 
 /**
  * Created by 陈俊山 on 2016/3/15.
+ *
  * @param <T> ViewDataBinding
  * @param <D> Item数据类型
  */
@@ -51,13 +52,13 @@ public abstract class CommonAdapter<T extends ViewDataBinding, D> extends BaseAd
         } else {
             binding = (T) convertView.getTag();
         }
-        getItem(binding, datas.get(position));
+        getItem(binding, datas.get(position), position);
         return convertView;
     }
 
-    protected abstract void getItem(T binding, D bean);
+    protected abstract void getItem(T binding, D bean, int position);
 
-    public void updata(List<D> datas){
+    public void updata(List<D> datas) {
         this.datas = datas;
         notifyDataSetChanged();
     }

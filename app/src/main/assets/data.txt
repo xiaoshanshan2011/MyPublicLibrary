@@ -1,0 +1,164 @@
+{
+    "result_code": 1,
+    "livebanner": [
+        {
+            "anchor_id": "15976",
+            "image_url": "http://api.youshixiu.com/uploads/banner_image/2016-06-30/big_thumb/24352d17ada883477ce0cf87cc0d225e_thumb.jpg",
+            "name": "你们好啊!"
+        },
+        {
+            "anchor_id": "17824",
+            "image_url": "http://api.youshixiu.com/uploads/banner_image/2016-07-04/big_thumb/277475c13a2efb8f875b98a312f2bd33_thumb.jpg",
+            "name": "知识改变命运"
+        },
+        {
+            "anchor_id": "8685",
+            "image_url": "http://api.youshixiu.com/uploads/banner_image/2016-07-15/big_thumb/140f50f534ffa1f3b1ef3f4f63309cff_thumb.jpg",
+            "name": "收铁粉老司机带你上王者"
+        }
+    ],
+    "hotgame": [
+        {
+            "id": "7240",
+            "cat_small_image": "http://api.youshixiu.com/uploads/category/2016-08-23/ef9ae7dfb1b4a53b5c6e39af0db4524b.png",
+            "cat_name": "球球大作战"
+        },
+        {
+            "id": "7223",
+            "cat_small_image": "http://api.youshixiu.com/uploads/category/2016-02-15/909a772883101e1e3bdd5dbc6ad7118c.png",
+            "cat_name": "王者荣耀"
+        },
+        {
+            "id": "128",
+            "cat_small_image": "http://api.youshixiu.com/uploads/category/2016-02-15/907897d890ea3ea2d53c42e738ce7aed.jpg",
+            "cat_name": "我的世界"
+        },
+        {
+            "id": "7944",
+            "cat_small_image": "http://api.youshixiu.com/uploads/category/2016-02-15/250def0b3157bff4cd672878d0b02849.png",
+            "cat_name": "CF手游"
+        },
+        {
+            "id": "64",
+            "cat_small_image": "http://api.youshixiu.com/uploads/images/ico/14-08-01/1406886163.jpg",
+            "cat_name": "天天酷跑"
+        }
+    ],
+    "liveall": [
+        {
+            "cat_name": "我的世界",
+            "image_url": "http://ysxjt.dnion.com/ysxgzd/z1.youshixiu1.56e0e93a10138508f10073e4.jpg?time=1472003644",
+            "popularity": "42444",
+            "name": "命运商店开张了",
+            "uid": "7196142",
+            "anchor_id": "10231"
+        },
+        {
+            "cat_name": "CF手游",
+            "image_url": "http://ysxjt.dnion.com/ysxgzd/z1.youshixiu1.5667a662d409d2904f0004b0.jpg?time=1472003645",
+            "popularity": "28740",
+            "name": "直播买100把黑骑士",
+            "anchor_id": "5604"
+        },
+        {
+            "cat_name": "我的世界",
+            "image_url": "http://ysxjt.dnion.com/ysxgzd/z1.youshixiu1.5731e2a2fb16df605800e78a.jpg?time=1472003645",
+            "popularity": "26488",
+            "name": "你们好啊!",
+            "uid": "10120152",
+            "anchor_id": "15976"
+        }
+    ],
+    "livelist": [
+        {
+            "cid": "7223",
+            "cat_name": "王者荣耀",
+            "anchor_list": [
+                {
+                    "image_url": "http://ysxjt.dnion.com/ysxgzd/z1.youshixiu1.5729b5745e77b039bf000f0f.jpg?time=1472004967",
+                    "popularity": "19730",
+                    "name": "免费带粉丝上分！粉丝怒上王者！",
+                    "anchor_id": "15116"
+                },
+                {
+                    "image_url": "http://ysxjt.dnion.com/ysxgzd/z1.youshixiu1.573d9804d409d28f3100cbf0.jpg?time=1472004967",
+                    "popularity": "9299",
+                    "name": "新来的小伙伴们点下关注，谢谢~",
+                    "anchor_id": "16892"
+                },
+                {
+                    "image_url": "http://ysxjt.dnion.com/ysxgzd/z1.youshixiu1.572976205e77b071f70b4753.jpg?time=1472004968",
+                    "popularity": "8042",
+                    "name": "我要上4000关注，我不管我要上",
+                    "anchor_id": "15092"
+                },
+                {
+                    "image_url": "http://ysxjt.dnion.com/ysxgzd/z1.youshixiu1.5679180dd409d207a100030d.jpg?time=1472004968",
+                    "popularity": "7467",
+                    "name": "菠萝刺客专场",
+                    "anchor_id": "6277"
+                }
+            ]
+        },
+        {
+            "cid": "7944",
+            "cat_name": "CF手游",
+            "anchor_list": [
+                {
+                    "image_url": "http://ysxjt.dnion.com/ysxgzd/z1.youshixiu1.5667a662d409d2904f0004b0.jpg?time=1472004966",
+                    "popularity": "27653",
+                    "name": "一发中修罗帮卡礼包免费借号",
+                    "anchor_id": "5604"
+                },
+                {
+                    "image_url": "http://ysxjt.dnion.com/ysxgzd/z1.youshixiu1.5745740beb6f920dac029273.jpg?time=1472004967",
+                    "popularity": "11533",
+                    "name": "CF水友赛免费参加了，快来",
+                    "anchor_id": "17831"
+                },
+                {
+                    "image_url": "http://ysxjt.dnion.com/ysxgzd/z1.youshixiu1.57849ea710138571e8026d5f.jpg?time=1472004968",
+                    "popularity": "6093",
+                    "name": "V8我敢送，就问你敢不敢来！！",
+                    "anchor_id": "28525"
+                },
+                {
+                    "image_url": "http://ysxjt.dnion.com/ysxgzd/z1.youshixiu1.5715cec2101385308b003b1a.jpg?time=1472004968",
+                    "popularity": "5333",
+                    "name": "开始抽人送v7",
+                    "anchor_id": "13361"
+                }
+            ]
+        },
+        {
+            "cid": "7240",
+            "cat_name": "球球大作战",
+            "anchor_list": [
+                {
+                    "image_url": "http://ysxjt.dnion.com/ysxgzd/z1.youshixiu1.5789ca455e77b0372004a415.jpg?time=1472004967",
+                    "popularity": "12674",
+                    "name": "今天我们讨论一下网红的故事",
+                    "anchor_id": "29829"
+                },
+                {
+                    "image_url": "http://ysxjt.dnion.com/ysxgzd/z1.youshixiu1.574be623d409d2b620047db0.jpg?time=1472004967",
+                    "popularity": "10913",
+                    "name": "biu～",
+                    "anchor_id": "18717"
+                },
+                {
+                    "image_url": "http://ysxjt.dnion.com/ysxgzd/z1.youshixiu1.571830a8101385308b01768d.jpg?time=1472004968",
+                    "popularity": "7314",
+                    "name": "女大十八变，越变越难看",
+                    "anchor_id": "13617"
+                },
+                {
+                    "image_url": "http://ysxjt.dnion.com/ysxgzd/z1.youshixiu1.5745567bd409d2b6200283a9.jpg?time=1472004968",
+                    "popularity": "6052",
+                    "name": "扶姐起来！姐还能作！",
+                    "anchor_id": "17807"
+                }
+            ]
+        }
+    ]
+}

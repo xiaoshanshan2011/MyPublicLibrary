@@ -111,7 +111,7 @@ public abstract class BaseActivity<T extends ViewDataBinding, D> extends Fragmen
      * @param binding
      * @param item
      */
-    protected void getListVewItem(T binding, D item) {
+    protected void getListVewItem(T binding, D item, int position) {
     }
 
     /**
@@ -125,17 +125,21 @@ public abstract class BaseActivity<T extends ViewDataBinding, D> extends Fragmen
     protected CommonAdapter<T, D> adapter = null;
 
     public void setData(List<D> datas) {
-        if (datas == null) {
+        if (datas == null && lvBinding != null) {
+            lvBinding.listView.setAdapter(null);
             return;
         }
-        if (lvBinding == null)
+
+        if (lvBinding == null) {
             return;
+        }
 
         if (adapter == null) {
             adapter = new CommonAdapter<T, D>(this, bindItemLayout(), datas) {
+
                 @Override
-                protected void getItem(T binding, D item) {
-                    getListVewItem(binding, item);
+                protected void getItem(T binding, D bean, int position) {
+                    getListVewItem(binding, bean, position);
                 }
             };
             lvBinding.listView.setAdapter(adapter);
