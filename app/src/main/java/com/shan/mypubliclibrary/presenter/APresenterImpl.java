@@ -42,6 +42,6 @@ public class APresenterImpl extends PresenterImpl implements APresenter {
                 aView.onFailure(e);
             }
         };
-        subscription = HttpRequestBuilder.getInstance().execute(HttpRequestBuilder.httpService.movie(map), subscriber);
+        startReust(HttpRequestBuilder.httpService.movie(map), subscriber);
     }
 }

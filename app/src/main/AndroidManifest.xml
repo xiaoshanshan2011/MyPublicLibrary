@@ -27,6 +27,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".test.TestAnimatorActivity" />
+        <activity android:name=".activity.TestActivity"/>
 
     </application>
 

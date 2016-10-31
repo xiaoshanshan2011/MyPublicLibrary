@@ -16,10 +16,13 @@ import com.shan.mypubliclibrary.adapter.CommonAdapter;
 import com.shan.mypubliclibrary.databinding.ListviewLayoutBinding;
 import com.shan.mypubliclibrary.databinding.TitletarLayoutBinding;
 import com.shan.mypubliclibrary.net.CancelRequestListener;
+import com.shan.mypubliclibrary.net.HttpRequestBuilder;
 import com.shan.publiclibrary.listener.BindListener;
 
 import java.util.List;
 
+import rx.Observable;
+import rx.Subscriber;
 import rx.Subscription;
 
 /**
@@ -268,5 +271,9 @@ public abstract class BaseFragment<T extends ViewDataBinding, D> extends Fragmen
         if (lvBinding != null) {
             lvBinding.refreshLayout.setRefreshing(false);
         }
+    }
+
+    public <T> void startReust(Observable observable, Subscriber<T> subscriber) {
+        subscription = HttpRequestBuilder.getInstance().execute(observable, subscriber);
     }
 }

@@ -1,8 +1,10 @@
 package com.shan.mypubliclibrary.fragment_tab;
 
+import android.content.Intent;
 import android.view.View;
 
 import com.shan.mypubliclibrary.BaseFragment;
+import com.shan.mypubliclibrary.activity.TestActivity;
 import com.shan.mypubliclibrary.bean.MovieBean;
 import com.shan.mypubliclibrary.bean.MovieBean.ShowapiResBodyBean.DatalistBean;
 import com.shan.mypubliclibrary.databinding.ItemBinding;
@@ -47,7 +49,8 @@ public class AFragment extends BaseFragment<ItemBinding, DatalistBean> implement
 
     @Override
     protected void itemOnclick(int position) {
-        ToastUtils.toast(position + "");
+        Intent intent = new Intent(getActivity(), TestActivity.class);
+        startActivity(intent);
     }
 
     @Override
