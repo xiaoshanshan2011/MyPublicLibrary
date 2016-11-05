@@ -1,4 +1,4 @@
-package com.shan.mypubliclibrary.activity;
+package com.shan.mypubliclibrary.ui.activity;
 
 import android.view.Gravity;
 

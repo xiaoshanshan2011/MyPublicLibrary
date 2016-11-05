@@ -6,7 +6,7 @@ import android.view.View;
 
 import com.shan.mypubliclibrary.BaseActivity;
 import com.shan.mypubliclibrary.R;
-import com.shan.mypubliclibrary.activity.TestJingdongBaitiao;
+import com.shan.mypubliclibrary.ui.activity.TestJingdongBaitiao;
 import com.shan.mypubliclibrary.databinding.ActivityMainBinding;
 import com.shan.mypubliclibrary.listener.TitleBarListener;
 import com.shan.publiclibrary.activity.CommonActivity;

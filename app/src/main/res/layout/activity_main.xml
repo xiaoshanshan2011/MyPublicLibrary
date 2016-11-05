@@ -35,7 +35,7 @@
 
             <fragment
                 android:id="@+id/fragment"
-                android:name="com.shan.mypubliclibrary.fragment.LeftDrawerFragment"
+                android:name="com.shan.mypubliclibrary.ui.fragment.LeftFragment"
                 android:layout_width="240dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="start" />
