@@ -127,5 +127,6 @@ public class App extends Application {
                 .setEnablePreview(false)//是否开启预览功能
                 .build();
     }
+    /*################################初始化图片选择器结束################################*/
 
 }

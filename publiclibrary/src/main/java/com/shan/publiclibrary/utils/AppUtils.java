@@ -4,11 +4,9 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
-import com.shan.publiclibrary.App;
-
 /**
  * App相关辅助工具类
- * Created by 陈俊山 on 2016/7/31.
+ * Created by chenjunshan on 2016/7/31.
  */
 
 public class AppUtils {
